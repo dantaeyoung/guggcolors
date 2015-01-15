@@ -8,6 +8,14 @@ body {
 	padding: 50px;
 }
 
+a {
+	color: #FF55A5;
+}
+
+a:hover {
+	color: #FF99A9;
+}
+
 .title {
 	text-align: right;
 	font-weight: bold;
