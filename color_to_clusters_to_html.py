@@ -14,8 +14,6 @@ from collections import defaultdict
 from colormath.color_conversions import convert_color
 from colormath.color_objects import LabColor, LCHabColor, SpectralColor, sRGBColor, XYZColor, LCHuvColor, IPTColor
 
-
-
 def rgb_to_lab(rgbtuple):
     labColor = convert_color(sRGBColor(rgbtuple[0],rgbtuple[1],rgbtuple[2], is_upscaled=True), LabColor)
     return labColor.get_value_tuple()
@@ -51,7 +49,7 @@ with open('index.html', 'w') as f:
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('<div class="title">the 5 colors<br> everyone thinks<br> the helsinki guggenheim<br> should look like</div>\n')
-    f.write('<div class="subtitle">(version v.01_hacked_together. warning: full-size images, very slow. <a href="twitter.com/provolot">@provolot</a>)</div>\n')
+    f.write('<div class="subtitle">(<a href="https://github.com/provolot/guggcolors">github repo.</a> version v.01_hacked_together. warning: full-size images, very slow. <a href="twitter.com/provolot">@provolot</a>)</div>\n')
 
     for g, ids in groups_to_ids.iteritems():
         f.write('<div class="cluster cluster-%s" data-cluster="%s">\n' % (str(g), lab_to_rgb(clusters[g], hex=True)))
