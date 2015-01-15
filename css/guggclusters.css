@@ -1,0 +1,67 @@
+html {
+	margin: 0px;
+	padding: 0px;
+}	
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 50px;
+}
+
+.title {
+	text-align: right;
+	font-weight: bold;
+	font-size: 3em;
+	margin-bottom: 10px;
+}
+.subtitle {
+	text-align: right;
+	font-size: 1em;
+	margin-bottom: 50px;
+}
+
+.cluster {
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.cluster-color {
+	margin-top:40px;
+	float: left;
+	height:300px;
+	width: 300px;
+	margin-left: 50px;
+}
+
+.entries {
+	overflow: hidden;
+	padding: 30px;
+	border: 10px solid black;
+	margin-left: 400px;
+}
+
+.entry {
+//	display: inline-block;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+.entry.hovering img {
+	position: fixed;
+	top: 50px;
+	left: 30px;
+	display: block;
+}
+.color {
+	height: 30px;
+	width: 30px;
+}
+
+img {
+	border: 20px solid #DDD;
+	max-height: 300px;
+	max-width: 350px;
+	display: none;
+}
