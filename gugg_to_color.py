@@ -34,15 +34,16 @@ for i, entry in enumerate(data['submissions']):
 			f.write(source.read())
 			print filename
 
-		print ['convert', filename, "-resize", "1x1", "txt:"]
-		p = subprocess.Popen(['convert', filename, "-resize", "1x1", "txt:"], stdout=subprocess.PIPE)
+		out, err = subprocess.Popen(['convert', filename, "-colorspace", "sRGB", "-scale", "1x1", "txt:"], stdout=subprocess.PIPE).communicate()
 		#p = subprocess.Popen(['gm', 'identify', filename], stdout=subprocess.PIPE)
-		convertResult = p.communicate()[0]
-		print convertResult
-		res = re.findall('srgb\((\d*),(\d*),(\d*)\)',convertResult)
-		r = res[0][0]
-		g = res[0][1]
-		b = res[0][2]
+                print out
+		colors = out.splitlines()
+                for line in colors[1:]:
+                    print line
+                    res = re.findall('srgb\((\d*),(\d*),(\d*)\)', line)
+                    r = res[0][0]
+                    g = res[0][1]
+                    b = res[0][2]
 
 		averageColor[i] = {}
 		averageColor[i]['id'] = entry['id']
@@ -51,10 +52,12 @@ for i, entry in enumerate(data['submissions']):
 		averageColor[i]['p1_b'] = b
 		averageColor[i]['p1'] = entry['data']['images']['press_image_1']
 
+                print averageColor[i]
+
 	except Exception, e:
 		print e
 
-with open('avgColors.json', 'w') as f:
+with open('avgColorsScale.json', 'w') as f:
 	f.write(json.dumps(averageColor, indent=4))
 
 
