@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import re
+import urllib
 import urllib2
 import json
 import os
@@ -51,7 +52,7 @@ with open('index.html', 'w') as f:
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('<div class="title">the 5 colors<br> 1,715 architecture firms think<br> the helsinki guggenheim<br> should look like</div>\n')
-    f.write('<div class="subtitle">(<a href="https://github.com/provolot/guggcolors">github repo.</a> version v.01_hacked_together. warning: full-size images, very slow. <a href="twitter.com/provolot">@provolot</a>)</div>\n')
+    f.write('<div class="subtitle">(<a href="https://github.com/provolot/guggcolors">github repo.</a> version v.01_hacked_together. <a href="twitter.com/provolot">@provolot</a>)</div>\n')
 
     for g, ids in groups_to_ids.iteritems():
         f.write('<div class="cluster cluster-%s" data-cluster="%s">\n' % (str(g), lab_to_rgb(clusters[g], hex=True)))
@@ -62,9 +63,11 @@ with open('index.html', 'w') as f:
             thishex = lab_to_rgb(rgb_to_lab(id_to_rgb[thisid]), hex=True) #too lazy tom ake this simpler
             entryid = data[str(thisid)]['id']
             url = 'data/' + entryid + '/' + data[str(thisid)]['p1']
+            absoluteUrl = 'http://vps.provolot.com/GITHUB/guggdata/data/' + entryid + '/' + data[str(thisid)]['p1']
             f.write('    <div class="entry">\n')
             f.write('      <div class="color" style="background-color:%s"></div>\n' %  thishex)
-            f.write('      <div class="image"><img src="%s"></div>\n' % url)
+            urlResized = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?" + urllib.urlencode({'url':absoluteUrl}) + "&container=focus&resize_w=600&refresh=2592000"
+            f.write('      <div class="image"><img src="%s"></div>\n' % urlResized)
             f.write('    </div>\n')
 
         f.write('  </div>\n')
