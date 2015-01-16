@@ -1,4 +1,4 @@
-# guggcolors, or the 5 colors everyone thinks the helsinki guggenheim should look like
+# guggcolors, or the 5 colors 1,715 architecture firms think the helsinki guggenheim should look like
 
 There are two scripts:
 1) gugg_to_color.py
