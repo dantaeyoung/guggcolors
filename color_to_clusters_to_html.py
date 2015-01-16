@@ -43,12 +43,14 @@ for i, g in id_to_groups.iteritems():
 with open('index.html', 'w') as f:
     f.write('<html>\n')
     f.write('<head>\n')
+    f.write('  <title>the 5 colors 1,715 architecture firms think the helsinki guggenheim should look like</title>\n')
+    f.write('<meta name="description" content="the 5 colors 1,715 architecture firms think the helsinki guggenheim should look like" />')
     f.write('  <link rel="stylesheet" href="css/guggclusters.css">\n')
     f.write('  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>\n')
     f.write('  <script src="js/guggclusters.js"></script>\n')
     f.write('</head>\n')
     f.write('<body>\n')
-    f.write('<div class="title">the 5 colors<br> everyone thinks<br> the helsinki guggenheim<br> should look like</div>\n')
+    f.write('<div class="title">the 5 colors<br> 1,715 architecture firms think<br> the helsinki guggenheim<br> should look like</div>\n')
     f.write('<div class="subtitle">(<a href="https://github.com/provolot/guggcolors">github repo.</a> version v.01_hacked_together. warning: full-size images, very slow. <a href="twitter.com/provolot">@provolot</a>)</div>\n')
 
     for g, ids in groups_to_ids.iteritems():
