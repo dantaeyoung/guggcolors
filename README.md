@@ -1,5 +1,7 @@
 # guggcolors, or the 5 colors 1,715 architecture firms think the helsinki guggenheim should look like
 
+Working link here: [http://vps.provolot.com/GITHUB/guggdata/index.html](http://vps.provolot.com/GITHUB/guggdata/index.html)
+
 There are two scripts:
 1) gugg_to_color.py
 2) color_to_clusters_to_html.py
