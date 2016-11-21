@@ -68,7 +68,8 @@ a:hover {
 }
 
 img {
-	border: 20px solid #DDD;
+	border-width: 20px;
+	border-style: solid;
 	max-height: 300px;
 	max-width: 350px;
 	display: none;
